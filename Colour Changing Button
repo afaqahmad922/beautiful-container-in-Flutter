@@ -1,0 +1,60 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Color Toggler App',
+      theme: ThemeData(
+        primaryColor: Color(0xFF66A5AD), // Seafoam green
+        hintColor: Color(0xFFC4DFE6), // Light blue
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  Color _backgroundColor = Colors.white;
+  bool _isSeafoamGreen = true;
+
+  void _toggleColor() {
+    setState(() {
+      _isSeafoamGreen = !_isSeafoamGreen;
+      _backgroundColor =
+          _isSeafoamGreen ? Color(0xFF66A5AD) : Color(0xFFC4DFE6);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Color Toggler App'),
+      ),
+      body: Center(
+        child: Container(
+          width: 200,
+          height: 200,
+          color: _backgroundColor,
+          child: Center(
+            child: ElevatedButton(
+              onPressed: _toggleColor,
+              child: Text(_isSeafoamGreen ? 'Light Blue' : 'Seafoam Green'),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
