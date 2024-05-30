@@ -1,0 +1,119 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        resizeToAvoidBottomInset: true,
+        backgroundColor: Color(0xffF5F5F5),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: Center(child: Text('LOGIN',style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),)),
+        ),
+        body: SingleChildScrollView(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: 40,),
+                SingleChildScrollView(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image(image: AssetImage("images/imageadd.jpg"),
+                      height: 50,
+                      width: 50,),
+                      SizedBox(width: 10,),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Hassan Gillani", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: Colors.black),),
+                          Text("Amazon Reinstatement", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: Colors.red),),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20,),
+                Center(child: Text("Login", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24,color: Colors.black),)),
+                SizedBox(height: 1,),
+                Center(child: Text("Amazon Attorney", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.black),)),
+                SizedBox(height: 50,),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0,),
+                  child: TextFormField(
+                    decoration: InputDecoration(hintText: 'Email', fillColor: Colors.white12,
+                        filled: true,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black),
+                        ),
+                        prefixIcon: Icon(Icons.email_outlined, color: Colors.deepOrange,)),
+                  ),
+                ),
+                SizedBox(height: 20,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: TextFormField(
+                    decoration: InputDecoration(hintText: 'Password', fillColor: Colors.white12,
+                        filled: true,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black),
+                        ),
+                        prefixIcon: Icon(Icons.password, color: Colors.deepOrange,), suffixIcon: Icon(Icons.visibility_off_outlined)),
+                  ),
+                ),
+                SizedBox(height: 10,),
+                Padding(
+                  padding: const EdgeInsets.only(right: 12.0),
+                  child: Container(
+                    alignment: Alignment.centerRight, // Align container's child to the right
+                    child: Text(
+                      'Reset Password?',
+                      style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 100,),
+                Container(
+                  height: 50,
+                  width: 300,
+                  decoration: BoxDecoration(
+                    color: Colors.deepOrange,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.9),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0,2),
+                      )
+                    ]
+                  ),
+                  child: Center(child: Text("Login", style: TextStyle(color: Colors.white,fontSize: 20, fontWeight: FontWeight.bold),)),
+                ),
+                SizedBox(height: 20,),
+                SingleChildScrollView(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Don't have Account", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: Colors.black),),
+                      GestureDetector
+                        (child: Text("SignUp", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: Colors.red),)),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
